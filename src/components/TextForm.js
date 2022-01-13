@@ -63,6 +63,13 @@ export default function TextForm(props) {
           value={text}
         ></textarea>
       </div>
+      
+      <div className="container my-3">
+        <p>
+          {text.split(" ").length} words and {text.length} characters
+        </p>
+      </div>
+
       <button
         onClick={handleClickUp}
         className="btn btn-primary my-2  mx-1"
@@ -85,14 +92,6 @@ export default function TextForm(props) {
       <button onClick={handleClickClear} className=" btn btn-primary mx-1 my-2 ">
         Clear
       </button>
-
-      <div className="container my-3">
-        <h2>Your text summary</h2>
-        <p>
-          {text.split(" ").length} words and {text.length} words{" "}
-        </p>
-        <p>{0.08 * text.split(" ").length} Minutes read</p>
-      </div>
 
       <div className="container ">
         <h2>Preview</h2>
