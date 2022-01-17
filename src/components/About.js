@@ -4,32 +4,12 @@ import React, { useState } from "react";
 
 export default function About(props) {
 
-  const [myStyle, setmyStyle] = useState({
-    backgroundColor: 'white',
-    color: 'black'
-  })
+ let myStyle = {
+   color : props.mode === 'dark'?'white':'black',
+   backgroundColor : props.mode === 'dark'?'black':'white'
+ }
 
-  const toggleStyle = () => {
-    if (myStyle.backgroundColor === 'white') {
-      setmyStyle({
-        backgroundColor: 'black',
-        color: 'white',
-      })
-      props.showAlert("small dark mode enabled", "Success")
-      let newText = "Disable Dark Mode"
-      setbtnText(newText)
-    } else {
-      props.showAlert("small light mode enabled", "Success")
-      setmyStyle({
-        backgroundColor: 'white',
-        color: 'black'
-      })
-      let newText = "Enable Dark Mode"
-      setbtnText(newText)
-    }
-  }
-
-  const [btnText, setbtnText] = useState("Enable Dark Mode")
+  
 
   return (
     <>
@@ -48,7 +28,7 @@ export default function About(props) {
                 aria-controls="collapseOne"
 
               >
-                Accordion Item #1
+                Analyze Text
               </button>
             </h2>
             <div
@@ -81,7 +61,7 @@ export default function About(props) {
                 aria-controls="collapseTwo"
 
               >
-                Accordion Item #2
+                Free to Use
               </button>
             </h2>
             <div
@@ -114,7 +94,7 @@ export default function About(props) {
                 aria-controls="collapseThree"
 
               >
-                Accordion Item #3
+                Dark Mode Feature
               </button>
             </h2>
             <div
@@ -136,9 +116,7 @@ export default function About(props) {
             </div>
           </div>
         </div>
-        <div>
-          <button onClick={toggleStyle} className="btn btn-primary my-3">{btnText}</button>
-        </div>
+       
       </div>
     </>
   );

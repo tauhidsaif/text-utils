@@ -45,7 +45,7 @@ export default function TextForm(props) {
   };
 
   const handleOnChange = (event) => {
-    console.log("handleOnChange working");
+    // console.log("handleOnChange working");
     setText(event.target.value);
   };
 
@@ -66,30 +66,27 @@ export default function TextForm(props) {
       
       <div className="container my-3">
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length !== 0 }).length} words and {text.length} characters
         </p>
       </div>
 
-      <button
-        onClick={handleClickUp}
-        className="btn btn-primary my-2  mx-1"
-        type="submit"
+      <button disabled={text.length===0} onClick={handleClickUp} className="btn btn-primary my-2  mx-1" 
       >
         Convert to UPPERCASE
       </button>
-      <button onClick={handleClickDown} className=" btn btn-primary mx-1 my-2 ">
+      <button disabled={text.length===0} onClick={handleClickDown} className=" btn btn-primary mx-1 my-2 ">
         Convert to lowercase
       </button>
-      <button onClick={handleClickFirst} className=" btn btn-primary mx-1 my-2 ">
+      <button disabled={text.length===0} onClick={handleClickFirst} className=" btn btn-primary mx-1 my-2 ">
         First Letter CaPitalizer
       </button>
-      <button onClick={handleExtraSpaces} className=" btn btn-primary mx-1 my-2 ">
+      <button disabled={text.length===0} onClick={handleExtraSpaces} className=" btn btn-primary mx-1 my-2 ">
         Remove Extra Spaces
       </button>
-      <button onClick={handleCopy} className=" btn btn-primary mx-1  my-2">
+      <button disabled={text.length===0} onClick={handleCopy} className=" btn btn-primary mx-1  my-2">
         Copy
       </button>
-      <button onClick={handleClickClear} className=" btn btn-primary mx-1 my-2 ">
+      <button disabled={text.length===0} onClick={handleClickClear} className=" btn btn-primary mx-1 my-2 ">
         Clear
       </button>
 
