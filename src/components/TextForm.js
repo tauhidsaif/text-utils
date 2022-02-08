@@ -37,15 +37,11 @@ export default function TextForm(props) {
   };
 
   const handleCopy = () => {
-    let copyText = document.getElementById("exampleFormControlTextarea1");
-    copyText.select();
-    navigator.clipboard.writeText(copyText.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied To Clipboard","Success")
-    // <Alert/>
   };
 
   const handleOnChange = (event) => {
-    // console.log("handleOnChange working");
     setText(event.target.value);
   };
 
@@ -66,7 +62,7 @@ export default function TextForm(props) {
       
       <div className="container my-3">
         <p>
-          {text.split(" ").filter((element)=>{return element.length !== 0 }).length} words and {text.length} characters
+          {text.split(/\s+/).filter((element)=>{return element.length !== 0 }).length} words and {text.length} characters
         </p>
       </div>
 
@@ -92,7 +88,7 @@ export default function TextForm(props) {
 
       <div className="container ">
         <h2>Preview</h2>
-        <p className="border rounded border-primary px-3 py-3 ">
+        <p className={`border rounded border-${props.bordercolor} px-3 py-3 `}>
           <b>{text}</b>
         </p>
       </div>
