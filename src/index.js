@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom'; // Import HashRouter
+import { HashRouter } from 'react-router-dom'; // Use HashRouter
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
