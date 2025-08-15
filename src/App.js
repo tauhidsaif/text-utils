@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Use HashRouter
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setmode] = useState("light");
@@ -38,8 +38,16 @@ function App() {
     }, 1500);
   };
 
+  function Footer() {
+    return (
+      <footer className="bg-dark text-light text-center py-3 mt-5">
+        <p className="mb-0">&copy; {new Date().getFullYear()} TextUtils. All rights reserved.</p>
+      </footer>
+    );
+  }
+
   return (
-    <Router basename="/text-utils"> {/* Add basename */}
+    <Router>
       <Navbar mode={mode} toggleBtn={toggleBtn} title="TextUtils" text={text} />
       <Alert alert={alert} />
       <div className="container my-3">
@@ -48,6 +56,7 @@ function App() {
           <Route exact path="/about" element={<About mode={mode} showAlert={showAlert} />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
